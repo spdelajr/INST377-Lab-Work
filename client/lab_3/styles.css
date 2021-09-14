@@ -88,3 +88,17 @@
   flex: initial;
   width: 300px;
 }
+.title-container {
+    color: black;
+    background-color: rgba(0,139, 139,0.8);  /* Blue */
+    padding: 20px 0;
+    display: flex;
+  }
+  
+  .title {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
