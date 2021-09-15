@@ -66,11 +66,7 @@
   .last-item {
     order: -1;
   }
-  .social,
-.subscribe {
-  align-self: flex-end;
-  margin-bottom: 20px;
-}
+  
 .footer {
     display: flex;
     justify-content: space-between;
@@ -102,3 +98,13 @@
     font-size: 1em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .social,
+.subscribe {
+  align-self: flex-end;
+  margin-bottom: 20px;
+  color: lightblue;
+}
