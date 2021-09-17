@@ -102,9 +102,11 @@
     color: white;
     text-decoration: none;
   }
-  .social,
-.subscribe {
+  .social {
   align-self: flex-end;
   margin-bottom: 20px;
   color: lightblue;
+}
+.social a {
+  color: rgba(14,184,246)
 }
