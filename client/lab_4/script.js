@@ -18,6 +18,7 @@ prev.addEventListener("click",function(){
 });
 
 function updateSlidePosition(){
+    console.log("test")
     for (let slide of slides){
         slide.classList.remove('.carousel_item--visible');
         slide.classList.add('.carousel_item--hidden');
@@ -36,6 +37,7 @@ function moveToNextSlide() {
         slidePosition++;
     }
     updateSlidePosition();
+    console.log(slidePosition);
 }
 
 function moveToPrevSlide() {
