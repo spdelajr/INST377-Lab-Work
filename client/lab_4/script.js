@@ -3,13 +3,14 @@ const slides=document.querySelectorAll('.carousel_item');
 const totalSlides=slides.length;
 console.log(totalSlides);
 
-const next =document.querySelector('.carousel_button--next');
+const next =document.querySelector('button#carousel_button--next');
 console.log('next button', next);
 next.addEventListener("click",function(){
     console.log("hello");
     moveToNextSlide();
 });
-const prev=document.querySelector('.carousel_button--prev');
+
+const prev=document.querySelector('button#carousel_button--prev');
 console.log('previous button', prev);
 prev.addEventListener("click",function(){
     console.log("hello");
