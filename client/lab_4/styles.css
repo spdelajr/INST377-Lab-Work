@@ -142,21 +142,20 @@
     top: 50%;
     transform: translateY(-50%);
 }*/
-.carousel_actions{
+/*.carousel_actions{
   display:flex;
   width:100%;
   justify-content: space-around;
   align-items: center;
   position: absolute;
-}
-.carousel .carousel_actions button{
+}*/
+.photo-grid-container .carousel_actions button{
     font-weight:bold;
     cursor: pointer;
     width: 40px;
 }
-.carousel .carousel_actions button#carousel_button--prev{
-    margin-right:20px;
+.photo-grid-container .carousel_actions button:focus{
+  background: orange;
+  color: green;
 }
-.carousel .carousel_actions button#carousel_button--next{
-    margin-left:20px;
-}
+
