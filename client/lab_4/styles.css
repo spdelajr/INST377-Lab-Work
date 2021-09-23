@@ -44,6 +44,7 @@
   .photo-grid-container {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
   .photo-grid {
@@ -133,25 +134,28 @@
 .carousel .carousel_item--visible{
     display:block;
 }
-.carousel .carousel_actions{
+/*.carousel .carousel_actions{
     display:flex;
     width:100%;
     justify-content: space-between;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}*/
+.carousel_actions{
+  display:flex;
+  width:100%;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
 }
 .carousel .carousel_actions button{
-    border-radius:50px;
-    border:0;
     font-weight:bold;
     cursor: pointer;
-    width:40px;
-    height:40px;
 }
 .carousel .carousel_actions button#carousel_button--prev{
-    margin-left:20px;
+    margin-right:20px;
 }
 .carousel .carousel_actions button#carousel_button--next{
-    margin-right:20px;
+    margin-left:20px;
 }
