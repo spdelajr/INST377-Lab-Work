@@ -74,14 +74,32 @@ body {
 .quiz{
   align-items: center;
   justify-content: center;
+  
 }
 .header{
   background-color: yellow;
   font-size: 40px;
+  border-radius: 5px;
 }
 .temp{
   background-color: white;
   align-items: center;
   justify-content: center;
   padding: 5px;
+  border-radius: 5px;
+}
+.form-row button {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: lightgreen;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px 40px;
+  cursor: pointer;
+  width:50%;
+  text-align: left;
 }
