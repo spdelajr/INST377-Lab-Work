@@ -9,14 +9,18 @@
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
   <body>
-      <div class=column></div>
+    <div class=wrapper>
+      <div class=container>
+        <div class=column></div>
       <div class='column header is-10 is-offset-1'>
           Sean's Lab 5
       </div>
       <div class=column></div>
       <div class=columns>
         <div class= 'column is-2 is-offset-one-fifth quiz'>
-            <div class='form-row'>
+          <div class='temp'>
+            <form action='/api' method='get' class='speaker-form'>
+              <div class='form-row'>
                 <label for='first-name'>First Name</label>
                 <input id='first-name' name='first-name' type='text'/>
             </div>
@@ -41,13 +45,23 @@
               <div class='form-row'>
                 <button>Submit</button>
               </div>
-    
+            </form>
+            
           </div>
+        </div>
           <div class='column is-1'></div>
           <div class= 'column is-4 quiz'>
+            <div class='temp'>
               This is going to be something in two weeks.
-    
+            </div>   
           </div>
       </div>
+      <div class=container>
+
+      </div>
+
+      </div>
+    </div>
+      
   </body>
 </html>

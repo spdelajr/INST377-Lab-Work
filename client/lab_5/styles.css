@@ -72,11 +72,16 @@ body {
   -webkit-appearance: none;   /* This will make it work */
 }
 .quiz{
-  background-color: white;
   align-items: center;
   justify-content: center;
 }
 .header{
   background-color: yellow;
   font-size: 40px;
+}
+.temp{
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
 }
