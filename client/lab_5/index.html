@@ -9,41 +9,42 @@
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
   <body>
-      <div class=header>
+      <div class='column header is-10 is-offset-1'>
           Sean's Lab 5
       </div>
-      <div class= column>
-        <div class='form-row'>
-            <label for='first-name'>First Name</label>
-            <input id='first-name' name='first-name' type='text'/>
-        </div>
-        <div class='form-row'>
-            <label for='food-preference'>Food Preference</label>
-            <input id='food-preference' name='food-preference' type='text'/>
-        </div>
-        <fieldset class='legacy-form-row'>
-            <legend>Veggie or Vegan</legend>
-            <input id='v1'
-                   name='veg-veg'
-                   type='radio'
-                   value='yes' />
-            <label for='v1' class='radio-label'>Yes</label>
-            <input id='v2'
-                   name='veg-veg'
-                   type='radio'
-                   value='no'
-                   checked />
-            <label for='v2' class='radio-label'>No</label>
-          </fieldset>
-          <div class='form-row'>
-            <button>Submit</button>
+      <div class=columns>
+        <div class= 'column is-2 is-offset-one-fifth quiz'>
+            <div class='form-row'>
+                <label for='first-name'>First Name</label>
+                <input id='first-name' name='first-name' type='text'/>
+            </div>
+            <div class='form-row'>
+                <label for='food-preference'>Food Preference</label>
+                <input id='food-preference' name='food-preference' type='text'/>
+            </div>
+            <fieldset class='legacy-form-row'>
+                <legend>Veggie or Vegan</legend>
+                <input id='v1'
+                       name='veg-veg'
+                       type='radio'
+                       value='yes' />
+                <label for='v1' class='radio-label'>Yes</label>
+                <input id='v2'
+                       name='veg-veg'
+                       type='radio'
+                       value='no'
+                       checked />
+                <label for='v2' class='radio-label'>No</label>
+              </fieldset>
+              <div class='form-row'>
+                <button>Submit</button>
+              </div>
+    
           </div>
-
+          <div class= 'column is-4 is-offset-6 quiz'>
+              This is going to be something in two weeks.
+    
+          </div>
       </div>
-      <div class= column>
-          This is going to be something in two weeks.
-
-      </div>
-
   </body>
 </html>

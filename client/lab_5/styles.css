@@ -12,6 +12,7 @@ body {
   background-color: darkslategray;
 }
 
+
 /* Page Layout */
 .columns {
   display: flex;
@@ -69,4 +70,11 @@ body {
   padding: 5px;
   font-size: 14px;            /* This won't work in Chrome or Safari */
   -webkit-appearance: none;   /* This will make it work */
+}
+.quiz{
+  background-color: white;
+}
+.header{
+  background-color: yellow;
+  font-size: 40px;
 }
