@@ -73,6 +73,8 @@ body {
 }
 .quiz{
   background-color: white;
+  align-items: center;
+  justify-content: center;
 }
 .header{
   background-color: yellow;
