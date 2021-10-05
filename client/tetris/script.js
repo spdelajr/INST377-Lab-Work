@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw();
       displayShape();
       addScore();
+      gameOver();
     }
   }
 
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9];
       if (row.every((index) => squares[index].classList.contains('taken'))) {
         score += 10;
-        console.log(score)
+        console.log(score);
         scoreDisplay.innerHtml = score;
         row.forEach((index) => {
           squares[index].classList.remove('taken');
@@ -190,6 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
         squares = squaresRemoved.concat(squares);
         squares.forEach((cell) => grid.appendChild(cell));
       }
+    }
+  }
+
+  function gameOver() {
+    if (current.some((index) => squares[currentPosition + index].classList.contains('taken'))) {
+      scoreDisplay.innerHtml = 'end';
+      clearInterval(timerId);
     }
   }
 
