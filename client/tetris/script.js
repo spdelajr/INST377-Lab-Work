@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function control(e) {
     if (e.keyCode === 37) {
       moveLeft();
-    } else if (e.keycode === 38) {
-      rotate();
     } else if (e.keyCode === 39) {
       moveRight();
+    } else if (e.keycode === 38) {
+      rotate();
     } else if (e.keyCode === 40) {
       // moveDown()
     }
@@ -80,10 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function freeze() {
     if (current.some((index) => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach((index) => squares[currentPosition + index].classList.add('taken'));
-      random = Math.floor(Math.random() * theTetrominoes.length);
+      // random = nextRandom;
+      nextRandom = Math.floor(Math.random() * theTetrominoes.length);
       current = theTetrominoes[random][currentRotation];
       currentPosition = 4;
       draw();
+      displayShape();
     }
   }
 
@@ -95,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moveLeft() {
-    console.log('left')
+    console.log('left');
     undraw();
     const isAtLeftEdge = current.some((index) => (currentPosition + index) % width === 0);
 
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
   }
   function moveRight() {
-    console.log('right')
+    console.log('right');
     undraw();
     const isAtRightEdge = current.some((index) => (currentPosition + index) % width === width - 1);
 
@@ -122,15 +124,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function rotate() {
-    console.log('up')
+    console.log('up');
     undraw();
-    currentRotation+=1;
+    currentRotation += 1;
     if (currentRotation === current.length) {
       currentRotation = 0;
     }
     console.log(currentRotation);
     current = theTetrominoes[random][currentRotation];
     draw();
+  }
+
+  const displaySqaures = document.querySelectorAll('.mini-grid div');
+  const displayWidth = 4;
+  // eslint-disable-next-line prefer-const
+  let displayIndex = 0;
+
+  const upNextTetrominoes = [
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2],
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1],
+    [1, displayWidth, displayWidth + 1, displayWidth + 2],
+    [0, 1, displayWidth, displayWidth + 1],
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1]
+  ];
+
+  function displayShape() {
+    displaySqaures.forEach((square) => {
+      square.classList.remove('tetromino');
+    });
+    upNextTetrominoes[nextRandom].forEach((index) => {
+      displaySqaures[displayIndex + index].classList.add('tetromino');
+    });
   }
 
   moveDown();
