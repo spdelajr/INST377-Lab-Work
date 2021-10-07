@@ -22,8 +22,8 @@ function displayMatches() {
     </li>
     `;
   }).join('');
-  console.log(html)
-  suggestions.innerHtml = html;
+  console.log(html);
+  suggestions.innerHTML = html;
 }
 
 searchInput.addEventListener('change', displayMatches);
