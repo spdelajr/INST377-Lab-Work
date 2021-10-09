@@ -10,7 +10,7 @@ async function windowActions() {
   function findMatches(wordToMatch, cities) {
     return cities.filter((place) => {
       const regex = new RegExp(wordToMatch, 'gi');
-      return place.name.match(regex);
+      return place.name.match(regex) || place.city.match(regex);
     });
   }
 
@@ -19,10 +19,10 @@ async function windowActions() {
     console.log(matchArray);
     const html = matchArray.map((place) => {
       return `
-    <li>
-      <span class = 'name'>${place.name}, ${place.city}, ${place.state}</span>
-    </li>
-    `;
+        <li>
+          <span class = 'name'>${place.name} <br/>${place.category} <em><br/>${place.address_line_1} <br/>${place.city} <br/>${place.zip}</em></span>
+        </li>
+      `;
     }).join('');
     console.log(html);
     suggestions.innerHTML = html;
