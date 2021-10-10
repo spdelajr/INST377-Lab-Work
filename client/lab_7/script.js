@@ -30,9 +30,13 @@ async function windowActions() {
         `;
     }).join('');
     suggestions.innerHTML = html;
+    if (!event.target.value) {
+      suggestions.innerHTML = '';
+    }
   }
 
   function displayMap(event) {
+    mymap.remove();
     const matchArray = findMatches(event.target.value, cities);
     const finalFive = matchArray.slice(0, 5);
     console.log(finalFive);
@@ -52,15 +56,17 @@ async function windowActions() {
     const marker3 = L.marker([finalFive[2].geocoded_column_1.coordinates[1], finalFive[2].geocoded_column_1.coordinates[0]]).addTo(mymap);
     const marker4 = L.marker([finalFive[3].geocoded_column_1.coordinates[1], finalFive[3].geocoded_column_1.coordinates[0]]).addTo(mymap);
     const marker5 = L.marker([finalFive[4].geocoded_column_1.coordinates[1], finalFive[4].geocoded_column_1.coordinates[0]]).addTo(mymap);
+    if (!event.target.value) {
+      mymap.remove()
+      mymap = L.map('mapid').setView([0, 0], 13);
+    }
   }
 
-  //searchInput.addEventListener('change', (evt) => { displayMatches(evt); });
   searchInput.addEventListener('keyup', (evt) => {
-    displayMatches(evt); });
-  //searchInput.addEventListener('change', (evt) => { displayMap(evt); });
+    displayMatches(evt);
+  });
   searchInput.addEventListener('keyup', (evt) => {
-    mymap.remove();
-    displayMap(evt); });
-  console.log(searchInput.length);
+    displayMap(evt);
+  });
 }
 window.onload = windowActions;
