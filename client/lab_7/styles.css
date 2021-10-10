@@ -1,3 +1,11 @@
 ul {
     list-style-type: disc;
     }
+#mapid { 
+    height: 180px;
+    width: 200px;
+ }
+ .body{
+     display: flex;
+     justify-content: space-between;
+ }
