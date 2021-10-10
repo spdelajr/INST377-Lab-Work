@@ -9,3 +9,8 @@ ul {
      display: flex;
      justify-content: space-between;
  }
+li{
+    background-color: teal;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
