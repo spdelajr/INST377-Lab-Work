@@ -6,10 +6,12 @@ async function windowActions() {
   const cities = await request.json();
   let mapX = 0;
   let mapY = 0;
+  let mymap = L.map('mapid').setView([mapX, mapY], 13);
   /* fetch(endpoint)
       .then((blob) => blob.json())
       .then((data) => { cities.push(...data); }); */
   function findMatches(wordToMatch, cities) {
+    console.log(wordToMatch.length);
     return cities.filter((place) => {
       const regex = new RegExp(wordToMatch, 'gi');
       return place.zip.match(regex);
@@ -36,7 +38,7 @@ async function windowActions() {
     console.log(finalFive);
     mapX = finalFive[0].geocoded_column_1.coordinates[1];
     mapY = finalFive[0].geocoded_column_1.coordinates[0];
-    let mymap = L.map('mapid').setView([mapX, mapY], 13);
+    mymap = L.map('mapid').setView([mapX, mapY], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -52,9 +54,13 @@ async function windowActions() {
     const marker5 = L.marker([finalFive[4].geocoded_column_1.coordinates[1], finalFive[4].geocoded_column_1.coordinates[0]]).addTo(mymap);
   }
 
-  searchInput.addEventListener('change', (evt) => { displayMatches(evt); });
-  searchInput.addEventListener('keyup', (evt) => { displayMatches(evt); });
-  searchInput.addEventListener('change', (evt) => { displayMap(evt); });
-  searchInput.addEventListener('keyup', (evt) => { displayMap(evt); });
+  //searchInput.addEventListener('change', (evt) => { displayMatches(evt); });
+  searchInput.addEventListener('keyup', (evt) => {
+    displayMatches(evt); });
+  //searchInput.addEventListener('change', (evt) => { displayMap(evt); });
+  searchInput.addEventListener('keyup', (evt) => {
+    mymap.remove();
+    displayMap(evt); });
+  console.log(searchInput.length);
 }
 window.onload = windowActions;
