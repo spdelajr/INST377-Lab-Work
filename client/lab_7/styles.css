@@ -2,15 +2,24 @@ ul {
     list-style-type: disc;
     }
 #mapid { 
-    height: 180px;
-    width: 200px;
+    height: 300px;
  }
  .body{
      display: flex;
      justify-content: space-between;
  }
 li{
-    background-color: teal;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    background-color: lightseagreen;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+h1{
+    font-size: 2em;
+}
+h2{
+    margin-bottom: 30px;
+}
+p{
+    font-size: 0.75em;
 }
