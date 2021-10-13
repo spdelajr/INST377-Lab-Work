@@ -5,8 +5,8 @@ async function windowActions() {
   const suggestions = document.querySelector('.suggestions');
   const request = await fetch(endpoint);
   const cities = await request.json();
-  let mapX = 0;
-  let mapY = 0;
+  let mapX = 38.81;
+  let mapY = -76.75;
   let mymap = L.map('mapid').setView([mapX, mapY], 13);
   /* fetch(endpoint)
       .then((blob) => blob.json())
@@ -42,13 +42,19 @@ async function windowActions() {
     const finalFive = matchArray.slice(0, 5);
     console.log(finalFive);
     try {
-      mapX = finalFive[0].geocoded_column_1.coordinates[1];
-      mapY = finalFive[0].geocoded_column_1.coordinates[0];
+      try {
+        mapX = finalFive[0].geocoded_column_1.coordinates[1];
+        mapY = finalFive[0].geocoded_column_1.coordinates[0];
+      } catch (e) {
+        mapX = finalFive[1].geocoded_column_1.coordinates[1];
+        mapY = finalFive[1].geocoded_column_1.coordinates[0];
+      }
     } catch (e) {
-      mapX = finalFive[1].geocoded_column_1.coordinates[1];
-      mapY = finalFive[1].geocoded_column_1.coordinates[0];
+      mapX = 38.81;
+      mapY = -76.75;
+      suggestions.innerHTML = 'Please input a valid zip code.';
     }
-    mymap = L.map('mapid').setView([mapX, mapY+0.2], 10);
+    mymap = L.map('mapid').setView([mapX, mapY + 0.2], 10);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -58,7 +64,7 @@ async function windowActions() {
       accessToken: 'pk.eyJ1Ijoic3BkZWxhanIiLCJhIjoiY2t1bGZuaXltMDBiZzJ1bGN1a2JtZGVnOSJ9.ZFtHmyCnSOxOXYtCbYoKzg'
     }).addTo(mymap);
     try {
-      const marker1 = L.marker([mapX, mapY]).addTo(mymap);
+      const marker1 = L.marker([finalFive[0].geocoded_column_1.coordinates[1], finalFive[0].geocoded_column_1.coordinates[0]]).addTo(mymap);
     } catch {
       console.log('Missing coordinates.');
     }
@@ -85,7 +91,7 @@ async function windowActions() {
 
     if (!event.target.value) {
       mymap.remove();
-      mymap = L.map('mapid').setView([0, 0], 13);
+      mymap = L.map('mapid').setView([38.81, -76.75], 10);
     }
   }
 
